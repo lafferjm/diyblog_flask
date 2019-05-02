@@ -12,8 +12,8 @@ class User(db.Model, UserMixin):
 
     # User fields
     active = db.Column(db.Boolean())
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
+    first_name = db.Column(db.String(50))
+    last_name = db.Column(db.String(50))
     bio = db.Column(db.String(400))
 
     roles = db.relationship('Role', secondary='user_roles', backref='roles')
