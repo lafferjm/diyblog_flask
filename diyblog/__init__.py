@@ -1,8 +1,8 @@
 from flask import Flask, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_user import UserManager
 from diyblog.config import Config
-
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -17,6 +17,7 @@ def create_app(test_config=None):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    user_manager = UserManager(app, db, models.User)
 
     from . import blog
     app.register_blueprint(blog.bp)
