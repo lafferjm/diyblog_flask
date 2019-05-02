@@ -11,7 +11,7 @@
             <input type="text" class="form-control" id="{{ form.username.id }}" name="{{ form.username.id }}" required />
             {% if form.username.errors %}
                 {% for e in form.username.errors %}
-                    <p class="form-text">{{ e }}</p>
+                    <small class="form-text text-muted">{{ e }}</small>
                 {% endfor %}
             {% endif %}
         </div>
@@ -21,7 +21,7 @@
             <input type="password" class="form-control" id="{{ form.password.id }}" name="{{ form.password.id }}" required />
             {% if form.password.errors %}
                 {% for e in form.password.errors %}
-                    <p class="form-text">{{ e }}</p>
+                    <small class="form-text text-muted">{{ e }}</small>
                 {% endfor %}
             {% endif %}
         </div>
