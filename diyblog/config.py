@@ -18,3 +18,5 @@ class Config(object):
     
     USER_REGISTER_URL = '/accounts/register'
     USER_REGISTER_TEMPLATE = 'auth/register.html'
+
+    USER_ENABLE_REMEMBER_ME = False
