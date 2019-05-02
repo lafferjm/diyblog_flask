@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to my blog</h1>
+    <p>
+        This was created to try and recreate the Mozilla Developer Network Django assessment using Flask.  The assement can be found
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/django_assessment_blog">here</a>.
+        <br />
+        Here are some simple statistics about this blog.
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Statistic Type</th>
+                <th scope="col">Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Number of Bloggers</td>
+                <td>{{ stats.num_authors }}</td>
+            </tr>
+            <tr>
+                <td>Number of Blog posts</td>
+                <td>{{ stats.num_posts }}</td>
+            </tr>
+            <tr>
+                <td>Number of Comments</td>
+                <td>{{ stats.num_comments }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
