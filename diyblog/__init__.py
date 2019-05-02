@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from diyblog.config import Config
 
+
 db = SQLAlchemy()
 migrate = Migrate()
 
@@ -25,3 +26,5 @@ def create_app(test_config=None):
         return redirect(url_for('blog.index'))
 
     return app
+
+from diyblog import models
