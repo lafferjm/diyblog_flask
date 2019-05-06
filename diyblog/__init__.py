@@ -8,6 +8,9 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 def create_app(test_config=None):
+    from . import blog
+    from . import models
+
     app = Flask(__name__)
     
     if test_config is None:
@@ -19,7 +22,6 @@ def create_app(test_config=None):
     migrate.init_app(app, db)
     user_manager = UserManager(app, db, models.User)
 
-    from . import blog
     app.register_blueprint(blog.bp)
 
     @app.route('/')
@@ -27,5 +29,3 @@ def create_app(test_config=None):
         return redirect(url_for('blog.index'))
 
     return app
-
-from diyblog import models
