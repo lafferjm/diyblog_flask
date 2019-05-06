@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Bloggers</h1>
+
+    {% if authors %}
+        <ul>
+            {% for author in authors %}
+                <li>{{ author.username }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no bloggers!</p>
+    {% endif %}
+{% endblock %}
