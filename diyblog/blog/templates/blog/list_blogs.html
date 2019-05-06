@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Blog List</h1>
+    {% if blogs %}
+        <ul>
+            {% for blog in blogs %}
+                <li>
+                    {{ blog.name }} ({{ blog.post_date.strftime('%b. %d, %Y')}}) -- {{ blog.author.username }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are not any blog posts yet</p>
+    {% endif %}
+{% endblock %}
