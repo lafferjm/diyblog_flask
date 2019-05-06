@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if blog %}
+        <h1>{{ blog.name }}</h1>
+        <strong>Post Date: </strong>{{ blog.post_date.strftime('%b. %d, %Y')}}
+        <br>
+        <strong>Author: </strong>{{ blog.author.username }}
+        <br>
+        <strong>Description:</strong>
+        <br>
+        {{ blog.content }}
+        <br>
+    {% else %}
+        <p>The blog doesn't exist</p>
+    {% endif %}
+{% endblock %}

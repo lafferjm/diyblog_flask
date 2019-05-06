@@ -32,8 +32,14 @@ def create_post():
         return redirect(url_for('blog.index'))
     return render_template('blog/create.html', form=form)
 
-@bp.route('/detail')
-def blog_detail():
+@bp.route('/blogs')
+def blog_list():
     blogs = BlogPost.query.all()
 
     return render_template('blog/list_blogs.html', blogs=blogs)
+
+@bp.route('/<int:blog_id>')
+def blog_detail(blog_id):
+    blog = BlogPost.query.filter_by(id=blog_id).first()
+
+    return render_template('blog/detail_blog.html', blog=blog)
