@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Blog Post</h1>
+    <hr>
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class_='form-control') }}
+        </div>
+        {% if form.name.errors %}
+            {% for error in form.name.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="form-group">
+            {{ form.author.label }}
+            {{ form.author(class_='form-control') }}
+        </div>
+        {% if form.author.errors %}
+            {% for error in form.author.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="form-group">
+            {{ form.post_date.label }}
+            {{ form.post_date(class_='form-control') }}
+        </div>
+        {% if form.post_date.errors %}
+            {% for error in post_date.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="form-group">
+            {{ form.content.label }}
+            {{ form.content(class_='form-control', rows=10) }}
+        </div>
+        {% if form.content.errors %}
+            {% for error in form.content.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
