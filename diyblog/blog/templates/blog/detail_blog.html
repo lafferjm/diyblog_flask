@@ -5,7 +5,7 @@
         <h1>{{ blog.name }}</h1>
         <strong>Post Date: </strong>{{ blog.post_date.strftime('%b. %d, %Y')}}
         <br>
-        <strong>Author: </strong>{{ blog.author.username }}
+        <strong>Author: </strong><a href="{{ url_for('blog.blog_author_detail', blogger_id=blog.author.id) }}">{{ blog.author.username }}</a>
         <br>
         <strong>Description:</strong>
         <br>

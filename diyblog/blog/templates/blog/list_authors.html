@@ -6,7 +6,9 @@
     {% if authors %}
         <ul>
             {% for author in authors %}
-                <li>{{ author.username }}</li>
+                <li>
+                    <a href="{{ url_for('blog.blog_author_detail', blogger_id=author.id) }}">{{ author.username }}</a>
+                </li>
             {% endfor %}
         </ul>
     {% else %}

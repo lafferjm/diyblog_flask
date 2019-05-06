@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if author %}
+        <h1>Blogger: {{ author.username }}</h1>
+        <h4>Bio</h4>
+        {{ author.bio }}
+        <h4>Blogs list</h4>
+        <ul>
+            {% for blog in author_blogs %}
+                <li>
+                    <a href="{{ url_for('blog.blog_detail', blog_id=blog.id) }}">{{ blog.name }}</a> ({{ blog.post_date.strftime('%b. %d, %Y') }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>That blogger doesn't exist!</p>
+    {% endif %}
+{% endblock %}

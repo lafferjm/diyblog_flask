@@ -49,3 +49,10 @@ def blog_author_list():
     authors = User.query.all()
 
     return render_template('blog/list_authors.html', authors=authors)
+
+@bp.route('/blogger/<int:blogger_id>')
+def blog_author_detail(blogger_id):
+    author = User.query.filter_by(id=blogger_id).first()
+    author_blogs = BlogPost.query.filter_by(author_id=author.id)
+
+    return render_template('blog/detail_author.html', author=author, author_blogs=author_blogs)
