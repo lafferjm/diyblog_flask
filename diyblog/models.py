@@ -39,7 +39,7 @@ class BlogPost(db.Model):
     name = db.Column(db.String(200))
     author = db.relationship('User')
     author_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
-    content = db.Column(db.String(200))
+    content = db.Column(db.String(2000))
     post_date = db.Column(db.DateTime, default=datetime.utcnow)
 
 
