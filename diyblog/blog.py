@@ -1,12 +1,13 @@
 from flask import Blueprint, render_template
+from diyblog.models import User, BlogPost, BlogComment
 
 bp = Blueprint('blog', __name__, url_prefix='/blog')
 
 @bp.route('/')
 def index():
-    num_authors = 0
-    num_posts = 0
-    num_comments = 0
+    num_authors = User.query.count()
+    num_posts = BlogPost.query.count()
+    num_comments = BlogComment.query.count()
 
     stats = {
         'num_authors': num_authors,
