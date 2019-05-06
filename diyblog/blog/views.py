@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template
+from flask import render_template
+from . import bp
 from diyblog.models import User, BlogPost, BlogComment
 
-bp = Blueprint('blog', __name__, url_prefix='/blog')
 
 @bp.route('/')
 def index():
