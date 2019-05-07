@@ -11,6 +11,12 @@
         <br>
         {{ blog.content }}
         <br>
+        <h4>Comments</h4>
+        <hr>
+        {% for comment in blog_comments %}
+            <div>{{ comment.author.username }} ({{ comment.post_date }}) - {{ comment.comment }}</div>
+            <hr>
+        {% endfor %}
     {% else %}
         <p>The blog doesn't exist</p>
     {% endif %}

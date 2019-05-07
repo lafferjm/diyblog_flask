@@ -10,10 +10,5 @@ class BlogCreateForm(FlaskForm):
     content = TextAreaField('Content', validators=[DataRequired(), Length(max=2000)])
     post_date = DateField('Post Date', validators=[DataRequired()])
 
-#BlogComment
-#     comment = db.Column(db.String(1000))
-#     author_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
-#     author = db.relationship('User')
-#     post_date = db.Column(db.DateTime(), default=datetime.utcnow)
-#     blog_id = db.Column(db.Integer(), db.ForeignKey('blog_posts.id'))
-#     blog = db.relationship('BlogPost', cascade='delete')
+class BlogCommentForm(FlaskForm):
+    comment = TextAreaField('Comment', validators=[DataRequired(), Length(max=1000)])
