@@ -17,6 +17,11 @@
             <div>{{ comment.author.username }} ({{ comment.post_date }}) - {{ comment.comment }}</div>
             <hr>
         {% endfor %}
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('blog.comment', blog_id=blog.id) }}">Add new comment</a>
+        {% else %}
+            <a href="{{ url_for('user.login', next=request.path) }}">Login</a> to add a comment.
+        {% endif %}
     {% else %}
         <p>The blog doesn't exist</p>
     {% endif %}
